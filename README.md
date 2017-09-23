@@ -1,5 +1,11 @@
 入职公司第三周，项目组让我用kotlin去完成一个内部使用的app。下面记录一下kotlin相关笔记。因为app比较简单，可能很多kotlin特性没有用出来。学习kotlin过程中查找的资料放在了最后。
 
+<!-- vim-markdown-toc GFM -->
+[开发环境](#开发环境)
+[kotlin几个直观的特性](#kotlin几个直观的特性)
+[kotlin的基础](#kotlin的基础)
+[开发环境](#开发环境)
+
 #### 开发环境
 AS version： `android stdio 3.0 bate 5 `
 android stdio 3.0以上是支持直接创建kotlin项目的，如果是android stdio 3.0以下，需要额外的添加一些依赖。
