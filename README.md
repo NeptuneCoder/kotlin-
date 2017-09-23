@@ -1,6 +1,7 @@
 入职公司第三周，项目组让我用kotlin去完成一个内部使用的app。下面记录一下kotlin相关笔记。因为app比较简单，可能很多kotlin特性没有用出来。学习kotlin过程中查找的资料放在了最后。
 
 <!-- vim-markdown-toc GFM -->
+:TOC
 [开发环境](#开发环境)
 
 [kotlin几个直观的特性](#kotlin几个直观的特性)
