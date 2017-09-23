@@ -1,10 +1,111 @@
 入职公司第三周，项目组让我用kotlin去完成一个内部使用的app。下面记录一下kotlin相关笔记。因为app比较简单，可能很多kotlin特性没有用出来。学习kotlin过程中查找的资料放在了最后。
 
+<!-- vim-markdown-toc GFM -->
+[TOC]: 生成目录
+----
+[开发环境](#开发环境)
 
-[开发环境](#开发环境)
 [kotlin几个直观的特性](#kotlin几个直观的特性)
+
 [kotlin的基础](#kotlin的基础)
-[开发环境](#开发环境)
+
+* [kotlin基本数据类型](#kotlin基本数据类型)
+
+* [如何定义一个常量和变量](#如何定义一个常量和变量)
+
+* [基本数据类型的转换](#基本数据类型的转换)
+
+* [数组的定义](#数组的定义)
+
+* [字符串输出](#字符串输出)
+
+* [kotlin中创建一个对象不需要使用`new`关键字](#kotlin中创建一个对象不需要使用`new`关键字)
+
+[包](#包)
+
+[控制流](#控制流)
+
+* [if else](#ifelse)
+
+* [when](#when)
+
+* [while](#while)
+
+* [for](#for)
+
+[类和对象](#类和对象)
+
+* [类的定义](#类的定义)
+
+* [定义函数：使用***fun***关键字](#定义函数：使用***fun***关键字)
+
+* [函数参数列表的默认值](#函数参数列表的默认值)
+
+[继承](#继承)
+
+[抽象类的定义](#抽象类的定义)
+
+[sealed修饰的密封类](#sealed修饰的密封类)
+
+[备用字段或者叫做幕后字段:field](#备用字段或者叫做幕后字段:field)
+
+[空安全](#空安全)
+
+[kotlin中接口的定义](#kotlin中接口的定义)
+
+* [接口的实现](#接口的实现)
+
+* [继承一个类和实现多个接口](#继承一个类和实现多个接口)
+
+* [解决重写冲突](#解决重写冲突)
+
+[可见性修饰词](#可见性修饰词)
+
+[伴随对象](#伴随对象)
+
+[扩展函数和伴随对象的扩展](#扩展方法和伴随对象的扩展)
+
+* [扩展函数](#扩展函数)
+
+* [伴随对象的扩展](#伴随对象的扩展)
+
+[数据对象](#数据对象)
+
+[内部类](#内部类)
+
+[匿名内部类](#匿名内部类)
+
+[代理属性](#代理属性)
+
+[函数](#函数)
+
+* [单表达式函数](#单表达式函数)
+
+* [中缀符号](#中缀符号)
+
+
+* [默认参数](#默认参数)
+
+* [变长参数](#变长参数)
+
+* [函数内部定义函数](#函数内部定义函数)
+
+* [函数可以赋值给另一个函数](#函数可以赋值给另一个函数)
+
+[闭包](#闭包)
+
+[自定义dsl](#自定义dsl)
+
+[kotlin与java的对比](#kotlin与java的对比)
+
+* [java有的而kotlin没有](#java有的而kotlin没有)
+
+* [kotlin有的而java没有](#kotlin有的而java没有)
+
+[学习时查找的资料](#查找的资料)
+
+
+
 
 #### 开发环境
 AS version： `android stdio 3.0 bate 5 `
@@ -157,7 +258,7 @@ kotlin
 ```
   kotlin中数组使用Array<TYPE>  定义。上面的Any是kotlin中的最根上的类，可以理解为跟java中的Object一样。
 
-###### 字符串输出<a name="base"></a>
+###### 字符串输出
 ```
 val value = "hello，world"
 println("str ==  $value")
@@ -173,7 +274,7 @@ println("str ==  ${person.age}")
 | Persion person  = new Person()    |     val person: Persoin = Person()   |
 || val person = Person() `自动类型推断`|
 
-###### 包
+#### 包
 kotlin 中package  比较特殊，文件上的package 可以随便定义,例如：
 ```kotlin
 package com.xxx.xxx.xxx
@@ -184,7 +285,7 @@ class  Person{
 
 
 ####  控制流
-###### if else
+###### ifelse
 ```kotlin
 //传统用法
 var max = a
@@ -334,7 +435,7 @@ class Person(val name: String,val age: Int ) {
 class Person(){
 }
 ```
-###### 定义函数： 使用***fun***关键字，
+###### 定义函数：使用***fun***关键字
 格式： fun + 函数名+(参数列表)+"空格"+":" +"空格" 返回类型+{//函数体}
 ```kotlin
 fun  dataIsModify(cache: List<String>,data: MutableList<String>) : Boolean{
@@ -344,7 +445,7 @@ fun  dataIsModify(cache: List<String>,data: MutableList<String>) : Boolean{
 ```
 注：1.  参数列表不能使用var 或val修饰，默认是有val修饰了。
 2. 空格是为了代码格式 
-###### 函数参数列表的默认值：
+###### 函数参数列表的默认值
 我们定义函数的时候，调用函数的时候，必须要传入对应的参数，kotlin中，可以对参数列表设置默认的值，也就是说，有些参数可传可不传。
 ```
 fun showDialogMessage(title: String = "", body: String = "this is a dialog") {
@@ -361,7 +462,6 @@ showDialogMessage(body = "change dialog hint")//body 参数不使用默认值
 
 
 ##### 继承
-<span id="jump">跳转到的地方</span>
 在kotlin中，类默认情况下是不能被继承的，需要在定义类的前面加上***open***关键字，该类才能被继承。同理，如果函数可以被继承，也需要使用***open***修饰,默认不能被继承。
 继承的语法：使用`:` + 被继承的类名+()，***()***如果有参数的话，需要传递进去。
 ```
@@ -390,7 +490,7 @@ class Person(x: Int, b: Int) : Base(x,b){
 }
 ```
 
-###### 抽象类的定义:
+###### 抽象类的定义
 使用***abstract*** 关键字修饰，跟java中一样。同理，里面的抽象方法也需要***abstract***修饰。和java一样，也可以定义具体的方法。
 ```
 abstract class Derived  {
@@ -420,7 +520,7 @@ var name : String
         //设置值做一些事情
     }
 ```
-######  备用字段 或者叫做幕后字段 ：field
+######  备用字段或者叫做幕后字段:field
 [这个概念的资料](https://hltj.gitbooks.io/kotlin-reference-chinese/content/txt/properties.html)
 我还没有怎么使用，所以放个链接，自己去看。
 
@@ -457,7 +557,7 @@ interface MyInterface {
         print(property)
 } }
 ```
-接口的实现：
+###### 接口的实现
 ```
 class Child : MyInterface {
     override val property: Int = 29
@@ -465,7 +565,7 @@ class Child : MyInterface {
 ```
 接口实现和基础类的区别在于是有后面跟***()***
 
-###### 继承一个类和实现多个接口：
+###### 继承一个类和实现多个接口
 ```
 class Base(){
 
@@ -528,7 +628,7 @@ class Person7{
 Person7.test()//使用方式
 ```
 
-##### 扩展方法和属性和伴随对象的扩展
+#### 扩展方法和伴随对象的扩展
 关于属性的扩展没怎么搞懂，下面不讲，项目中我暂时也没有用到。
 在类定义的第一种定义方法中，定义了如下一个类
 ```
@@ -537,7 +637,8 @@ class Person
 显然，定义了这么一个类是没有什么实际用途的。我们使用kotlin的扩展***extension***特性对其扩展一些方法。也就是说，我可以给所有的类添加方法。实现方式如下：
 
 
-###### 扩在函数格式：fun  + "要对扩展的类的名字" + "."+方法名()+ "{} //方法体"
+###### 扩展函数
+fun  + "要对扩展的类的名字" + "."+方法名()+ "{} //方法体"
 ```
 fun Person.eat(name: String){
     System.out.println("吃的是什么 = $name")
@@ -670,9 +771,9 @@ with(user){
 ```
 
 
-##### 函数
+#### 函数
 之前对已经讲了怎么定义一个函数，但是在kotlin中函数作为一等公民，显示还有很多高级的用法。
-1.单表达式函数
+###### 单表达式函数
 当函数只返回单个表达式时,大括号可以省略并在 = 后面定义函数体
 ```
 fun test(){
@@ -859,15 +960,15 @@ fun email(init: EmailSpec.()->Unit) {
 那些东西没有说：
 对象表达式和声明,代理类，异常，this表达式，运算符重载 ...
 
-##### kotlin与java的对比
+#### kotlin与java的对比
 copy的内容
-###### java 有的而 kotlin 没有
+###### java有的而kotlin没有
  异常检查
  原始类型不是类
  静态成员
  非私有成员
  通配符类型
-###### kotlin 有的而 java 没有
+###### kotlin有的而java没有
 字面函数+内联函数=高性能自定义控制结构 扩展函数 空安全 智能转换 String 模板 性能 一级构造函数 First-class delegation 变量和属性类型的类型接口 单 例模式 变量推断和类型预测 范围表达式 运算符重载 伴随对象
    
 
@@ -879,6 +980,8 @@ copy的内容
 ###### 基础类的扩展
 ###### 定义组合式控件
 ###### 点击事件,
+
+#### 查找的资料
 
 [kotlin 语法相关资料](https://github.com/huanglizhuo/kotlin-in-chinese)
 
