@@ -2,8 +2,47 @@
 
 <!-- vim-markdown-toc GFM -->
 [开发环境](#开发环境)
+
 [kotlin几个直观的特性](#kotlin几个直观的特性)
+
 [kotlin的基础](#kotlin的基础)
+
+* [开发环境](#kotlin基本数据类型)
+
+* [开发环境](#如何定义一个常量和变量)
+
+* [开发环境](#基本数据类型的转换)
+
+* [开发环境](#数组的定义)
+
+* [开发环境](#字符串输出)
+
+* [开发环境](#kotlin中创建一个对象不需要使用`new`关键字)
+
+[开发环境](#包)
+
+[开发环境](#控制流)
+
+* [开发环境](#if else)
+
+* [开发环境](#when)
+
+* [开发环境](#while)
+
+* [开发环境](#for)
+
+[开发环境](#类和对象)
+
+[开发环境](#开发环境)
+
+[开发环境](#开发环境)
+
+[开发环境](#开发环境)
+
+[开发环境](#开发环境)
+
+[开发环境](#开发环境)
+
 [开发环境](#开发环境)
 
 #### 开发环境
@@ -157,7 +196,7 @@ kotlin
 ```
   kotlin中数组使用Array<TYPE>  定义。上面的Any是kotlin中的最根上的类，可以理解为跟java中的Object一样。
 
-###### 字符串输出<a name="base"></a>
+###### 字符串输出
 ```
 val value = "hello，world"
 println("str ==  $value")
@@ -173,7 +212,7 @@ println("str ==  ${person.age}")
 | Persion person  = new Person()    |     val person: Persoin = Person()   |
 || val person = Person() `自动类型推断`|
 
-###### 包
+#### 包
 kotlin 中package  比较特殊，文件上的package 可以随便定义,例如：
 ```kotlin
 package com.xxx.xxx.xxx
